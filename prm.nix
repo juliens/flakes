@@ -31,7 +31,7 @@ buildGoModule rec {
 
   meta = with lib; {
     description = "Pull Request Manager for Maintainers ";
-    license = licenses.asl2;
+    license = licenses.asl20;
     homepage = "https://ldez.github.io/prm/";
   };
 
