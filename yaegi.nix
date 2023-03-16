@@ -14,7 +14,7 @@ buildGoModule rec {
 
   vendorHash =null;
 
-  nativeBuildInputs = [ installShellFiles ];
+  subPackages = [ "cmd/yaegi" ];
 
   doCheck = false;
 
