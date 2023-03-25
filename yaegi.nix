@@ -3,13 +3,13 @@
 
 buildGoModule rec {
   pname = "yaegi";
-  version = "0.15.0";
+  version = "0.15.1";
 
   src = fetchFromGitHub {
     owner = "traefik";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-++WA6Xdo9YuMQgCL/c485LgKeV4XeodVZBBYCBsmh+M=";
+    sha256 = "sha256-ZV1HidHJvwum18QIIwQiCcRcitZdHk5+FxkPs6YgDac=";
   };
 
   vendorHash =null;
