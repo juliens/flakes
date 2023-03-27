@@ -20,7 +20,9 @@ buildGoModule rec {
 
   ldflags = [
     "-s" "-w"
-    " -X github.com/ldez/prm/v3/meta.version=${version}"
+    " -X \"github.com/ldez/prm/v3/meta.version=v${version}\""
+    " -X \"github.com/ldez/prm/v3/meta.version=v${version}\""
+    " -X \"github.com/ldez/prm/v3/meta.date=01/01/1970\""
   ];
   postInstall = ''
         for shell in bash zsh fish; do
