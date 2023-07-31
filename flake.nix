@@ -14,6 +14,7 @@
     {
       packages.prm-bin = import ./prm-bin.nix { inherit pkgs; };
       packages.prm = pkgs.callPackage ./prm.nix {}; 
+      packages.mocktail = pkgs.callPackage ./mocktail.nix {}; 
       packages.yaegi = pkgs.callPackage ./yaegi.nix {}; 
       packages.go_1_21 = pkgs.go.overrideAttrs (finalAttrs: rec {
         version = "1.21rc2";
