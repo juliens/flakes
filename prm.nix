@@ -3,7 +3,7 @@
 
 buildGoModule rec {
   pname = "prm";
-  version = "3.5.0";
+  version = "3.5.1";
 
   src = fetchFromGitHub {
     owner = "ldez";
