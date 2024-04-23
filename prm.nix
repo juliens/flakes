@@ -9,10 +9,10 @@ buildGoModule rec {
     owner = "ldez";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-cuVJW/PybP7+7qBxXjVfL2webvyQzWgHL7nJXDV/554=";
+    sha256 = "sha256-f0kP+CC3X9KlaXZLdnKKACeUgOWrbtaNxihPGIG1kBw=";
   };
 
-  vendorHash ="sha256-TseXk1lKpxBmTwYjuDH8ycWUd6lOCMZmIHStl7MDvsY=";
+  vendorHash ="sha256-fWoRm9Vj/nS4MOtIbW5DiAZ1gdIFGDGAVD1MsWq1/70=";
 
   nativeBuildInputs = [ installShellFiles ];
 
