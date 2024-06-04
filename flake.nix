@@ -14,6 +14,7 @@
     {
       packages.prm-bin = import ./prm-bin.nix { inherit pkgs; };
       packages.prm = pkgs.callPackage ./prm.nix {}; 
+      packages.tparse = pkgs.callPackage ./tparse.nix {}; 
       packages.mocktail = pkgs.callPackage ./mocktail.nix {}; 
       packages.yaegi = pkgs.callPackage ./yaegi.nix {}; 
     }
