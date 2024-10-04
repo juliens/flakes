@@ -17,6 +17,8 @@
       packages.tparse = pkgs.callPackage ./tparse.nix {}; 
       packages.mocktail = pkgs.callPackage ./mocktail.nix {}; 
       packages.yaegi = pkgs.callPackage ./yaegi.nix {}; 
+      packages.psa-update = pkgs.callPackage ./psa-update.nix {}; 
+
       packages.go_commit = pkgs.go_1_23.overrideAttrs (finalAttrs: rec {
         GOROOT_BOOTSTRAP="${pkgs.go_1_23}/share/go";
         version = "f38d42f2c4c6ad0d7cbdad5e1417cac3be2a5dcb";
@@ -36,6 +38,5 @@
       });
     }
     );
-    
   
 }
