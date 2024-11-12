@@ -3,16 +3,16 @@
 
 buildGoModule rec {
   pname = "mocktail";
-  version = "0.5.1";
+  version = "0.6.0";
 
   src = fetchFromGitHub {
     owner = "traefik";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-H538oALiPh0bOkpf8850xepiis9ulG5MwFBdUuCWTL0=";
+    sha256 = "sha256-9BQNeaRe/w0i7mP+TfkplwoDmhYr9tXa3Cjo/ajTi88=";
   };
 
-  vendorHash ="sha256-7qx2YZTKwVhMZC/M5hNLQWzf7PbioKtCNSFPyaQ1NxM=";
+  vendorHash ="sha256-nbEOaQ+KLVMOuxTG1q/SQnxXzkqqzT8o2pQ4wVvjRZY=";
 
   nativeBuildInputs = [ installShellFiles ];
 

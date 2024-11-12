@@ -21,19 +21,19 @@
 
       packages.go_commit = pkgs.go_1_23.overrideAttrs (finalAttrs: rec {
         GOROOT_BOOTSTRAP="${pkgs.go_1_23}/share/go";
-        version = "f38d42f2c4c6ad0d7cbdad5e1417cac3be2a5dcb";
+        version = "201b9f6d6b46e0ae311e8a8b2cbe2ad6652f5680";
         buildInputs = [ pkgs.git ] ++ finalAttrs.buildInputs;
         src = pkgs.fetchFromGitHub {
           owner = "golang";
           repo = "go";
-          rev = "f38d42f2c4c6ad0d7cbdad5e1417cac3be2a5dcb";
+          rev = "201b9f6d6b46e0ae311e8a8b2cbe2ad6652f5680";
           sha256 = "JHx/1foo1CEuMO0T4+gmSD6OO02Q5A1tBDPy2MULd5A=";
       
         };
         #patches = nixpkgs.lib.lists.remove (nixpkgs.lib.lists.last finalAttrs.patches) finalAttrs.patches;
         buildPhase = ''
           export PATH="$PATH:${pkgs.git}/bin"
-          echo "f38d42f2c4c6ad0d7cbdad5e1417cac3be2a5dcb" > VERSION
+          echo "201b9f6d6b46e0ae311e8a8b2cbe2ad6652f5680" > VERSION
           '' + finalAttrs.buildPhase;
       });
     }
