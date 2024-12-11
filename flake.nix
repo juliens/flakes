@@ -14,6 +14,7 @@
     {
       packages.prm-bin = import ./prm-bin.nix { inherit pkgs; };
       packages.prm = pkgs.callPackage ./prm.nix {}; 
+      packages.gcg = pkgs.callPackage ./gcg.nix {}; 
       packages.tparse = pkgs.callPackage ./tparse.nix {}; 
       packages.mocktail = pkgs.callPackage ./mocktail.nix {}; 
       packages.yaegi = pkgs.callPackage ./yaegi.nix {}; 
@@ -21,19 +22,20 @@
 
       packages.go_commit = pkgs.go_1_23.overrideAttrs (finalAttrs: rec {
         GOROOT_BOOTSTRAP="${pkgs.go_1_23}/share/go";
-        version = "201b9f6d6b46e0ae311e8a8b2cbe2ad6652f5680";
+        version = "673a53917043afaf0fd89868251fc08dc98a89df";
         buildInputs = [ pkgs.git ] ++ finalAttrs.buildInputs;
         src = pkgs.fetchFromGitHub {
           owner = "golang";
           repo = "go";
-          rev = "201b9f6d6b46e0ae311e8a8b2cbe2ad6652f5680";
-          sha256 = "JHx/1foo1CEuMO0T4+gmSD6OO02Q5A1tBDPy2MULd5A=";
+          rev = version;
+          name = "go-${version}";
+          hash = "sha256-bdDOizxfG3fQhrE4JawtIbqnav3wNY34BMBAohkKlhM=";
       
         };
         #patches = nixpkgs.lib.lists.remove (nixpkgs.lib.lists.last finalAttrs.patches) finalAttrs.patches;
         buildPhase = ''
           export PATH="$PATH:${pkgs.git}/bin"
-          echo "201b9f6d6b46e0ae311e8a8b2cbe2ad6652f5680" > VERSION
+          echo "dev-${version}" > VERSION
           '' + finalAttrs.buildPhase;
       });
     }

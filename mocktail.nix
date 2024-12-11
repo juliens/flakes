@@ -9,6 +9,7 @@ buildGoModule rec {
     owner = "traefik";
     repo = pname;
     rev = "v${version}";
+    name = "mocktail-${version}";
     sha256 = "sha256-9BQNeaRe/w0i7mP+TfkplwoDmhYr9tXa3Cjo/ajTi88=";
   };
 

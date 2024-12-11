@@ -3,16 +3,17 @@
 
 buildGoModule rec {
   pname = "prm";
-  version = "3.5.1";
+  version = "3.6.0";
 
   src = fetchFromGitHub {
     owner = "ldez";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-f0kP+CC3X9KlaXZLdnKKACeUgOWrbtaNxihPGIG1kBw=";
+    name = "prm-${version}";
+    sha256 = "sha256-33PMZbajqRaBbY9wwFxtyNpfeNUt2WS+rBF4DNa6uzA";
   };
 
-  vendorHash ="sha256-fWoRm9Vj/nS4MOtIbW5DiAZ1gdIFGDGAVD1MsWq1/70=";
+  vendorHash ="sha256-mlBwTibTOCpRlCTGw7ZVFvSDmuuzc8waXM4SXvm3Z8U";
 
   nativeBuildInputs = [ installShellFiles ];
 
