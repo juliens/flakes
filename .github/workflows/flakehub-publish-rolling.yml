@@ -11,9 +11,13 @@ jobs:
       contents: "read"
     steps:
       - uses: "actions/checkout@v3"
-      - uses: "DeterminateSystems/nix-installer-action@main"
+      - uses: DeterminateSystems/nix-installer-action@main
+        with:
+          determinate: true
       - uses: "DeterminateSystems/flakehub-push@main"
         with:
           name: "juliens/flakes"
           rolling: true
           visibility: "unlisted"
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - run: nix build
