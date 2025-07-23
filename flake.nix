@@ -62,10 +62,39 @@
       });
 
       devShells.kube = pkgs.mkShell {
-        shellHook = ''
-          export TERM=xterm-256color
 
-          zsh
+        shellHook = ''
+	export TERM=xterm-256color
+        export ZSH="$HOME/.oh-my-zsh"
+        export ZSH_CUSTOM="$ZSH/custom"
+        export PLUGIN_DIR="$ZSH_CUSTOM/plugins"
+
+        if [ ! -d "$ZSH" ]; then
+          echo "[*] Installing Oh My Zsh..."
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+        fi
+
+        if [ ! -d "$PLUGIN_DIR/zsh-autosuggestions" ]; then
+          echo "[*] Installing zsh-autosuggestions..."
+          git clone https://github.com/zsh-users/zsh-autosuggestions "$PLUGIN_DIR/zsh-autosuggestions"
+        fi
+
+        if [ ! -f "$HOME/.zshrc" ]; then
+          echo "[*] Creating .zshrc..."
+          cat > "$HOME/.zshrc" <<EOF
+export ZSH="\$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(git zsh-autosuggestions)
+
+source \$ZSH/oh-my-zsh.sh
+
+# Autosuggestion style
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+EOF
+        fi
+
+        echo "[*] Dev shell ready. Starting zsh..."
+        exec zsh
         '';
         packages = [
           pkgs.kubernetes-helm
