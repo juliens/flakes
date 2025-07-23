@@ -74,6 +74,7 @@
           pkgs.k3d
           pkgs.zsh
           pkgs.zsh-autosuggestions
+          pkgs.oh-my-zsh
         ];
       };
     });
