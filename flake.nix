@@ -41,6 +41,7 @@
     packages.yaegi = pkgs.callPackage ./yaegi.nix {}; 
     packages.psa-update = pkgs.callPackage ./psa-update.nix {}; 
     packages.mcp-client-cli = mcp-client-cli;
+    packages.aerospace = pkgs.callPackage ./aerospace/package.nix {};
 
     packages.go_commit = pkgs.go_1_23.overrideAttrs (finalAttrs: rec {
       GOROOT_BOOTSTRAP="${pkgs.go_1_23}/share/go";
