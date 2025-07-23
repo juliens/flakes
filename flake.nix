@@ -73,6 +73,7 @@
           pkgs.k9s
           pkgs.k3d
           pkgs.zsh
+          pkgs.zsh-autosuggestions
         ];
       };
     });
