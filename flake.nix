@@ -65,13 +65,14 @@
         shellHook = ''
           export TERM=xterm-256color
 
-          ${pkgs.zsh}
+          zsh
         '';
         packages = [
           pkgs.kubernetes-helm
           pkgs.kubectl
           pkgs.k9s
           pkgs.k3d
+          pkgs.zsh
         ];
       };
     });
