@@ -73,6 +73,7 @@
         if [ ! -d "$ZSH" ]; then
           echo "[*] Installing Oh My Zsh..."
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+          rm "$HOME/.zshrc"
         fi
 
         if [ ! -d "$PLUGIN_DIR/zsh-autosuggestions" ]; then
@@ -91,6 +92,10 @@ source \$ZSH/oh-my-zsh.sh
 
 # Autosuggestion style
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+
+export GPU_1=$(nvidia-smi -L | grep "Device  0" | grep -oE 'UUID: [^)]+' | cut -d' ' -f2)
+export GPU_2=$(nvidia-smi -L | grep "Device  1" | grep -oE 'UUID: [^)]+' | cut -d' ' -f2)
+
 EOF
         fi
 
