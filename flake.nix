@@ -105,6 +105,7 @@ EOF
           pkgs.zsh
           pkgs.zsh-autosuggestions
           pkgs.oh-my-zsh
+          pkgs.docker-compose
         ];
       };
     });
