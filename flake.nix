@@ -34,6 +34,7 @@
   {
     packages.prm-bin = import ./prm-bin.nix { inherit pkgs; };
     packages.prm = pkgs.callPackage ./prm.nix {}; 
+    packages.Mole = pkgs.callPackage ./mole.nix {}; 
     packages.golangci-lint = pkgs.callPackage ./golangci-lint.nix {}; 
     packages.gcg = pkgs.callPackage ./gcg.nix {}; 
     packages.tparse = pkgs.callPackage ./tparse.nix {}; 
@@ -42,6 +43,7 @@
     packages.psa-update = pkgs.callPackage ./psa-update.nix {}; 
     packages.mcp-client-cli = mcp-client-cli;
     packages.aerospace = pkgs.callPackage ./aerospace/package.nix {};
+    packages.audiveris = pkgs.callPackage ./audiveris.nix {};
 
     packages.go_commit = pkgs.go_1_23.overrideAttrs (finalAttrs: rec {
       GOROOT_BOOTSTRAP="${pkgs.go_1_23}/share/go";
@@ -93,8 +95,8 @@ source \$ZSH/oh-my-zsh.sh
 # Autosuggestion style
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
-export GPU_1=$(nvidia-smi -L | grep "Device  0" | grep -oE 'UUID: [^)]+' | cut -d' ' -f2)
-export GPU_2=$(nvidia-smi -L | grep "Device  1" | grep -oE 'UUID: [^)]+' | cut -d' ' -f2)
+export GPU_1=\$(nvidia-smi -L | grep "Device  0" | grep -oE 'UUID: [^)]+' | cut -d' ' -f2)
+export GPU_2=\$(nvidia-smi -L | grep "Device  1" | grep -oE 'UUID: [^)]+' | cut -d' ' -f2)
 
 EOF
         fi
